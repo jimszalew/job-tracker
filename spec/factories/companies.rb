@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :company do
-    name "ESPN"
+    sequence :name do |i|
+      "ESPN#{i}"
+    end
   end
 end
