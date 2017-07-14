@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe "User edits an existing job" do
   scenario "a user can edit a job" do
-    company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Assistant", description: "self explanatory", level_of_interest: 10, city: "Omaha" )
+    company = create(:company, :with_jobs, job_count: 1)
+    job = company.jobs.first
     visit edit_company_job_path(company, job)
 
     fill_in "job[title]", with: "Manager"
@@ -14,6 +14,6 @@ describe "User edits an existing job" do
 
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{job.id}")
     expect(page).to have_content("Manager")
-    expect(page).to_not have_content("Assistant")
+    expect(page).to_not have_content(job.title)
   end
 end
