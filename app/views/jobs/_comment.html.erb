@@ -1,4 +1,4 @@
 <div>
-  <p>Posted <%= distance_of_time_in_words(@job.created_at, comment.created_at) %> later</p>
+  <h4><%= distance_of_time_in_words(@job.created_at, comment.created_at) %> later:</h4>
   <p><%= comment.content %></p>
 </div>

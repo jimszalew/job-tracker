@@ -10,8 +10,10 @@
 
 <p>Category: <%= link_to @job.category.title, category_path(@job.category) %></p>
 
+<h3>Comments <%= @job.comments.count %></h3>
 <%= render partial: 'jobs/comment', collection: @job.comments.reverse %>
 <%= render partial: 'comments/form' %>
 
-<%= link_to 'Edit Job', edit_company_job_path(@job.company, @job)%>
-<%= link_to 'Delete',  company_job_path(@job.company, @job), method: :delete%>
+<p><%= link_to 'Edit Job', edit_company_job_path(@job.company, @job)%></p>
+<p><%= link_to 'Delete',  company_job_path(@job.company, @job), method: :delete%></p>
+<p><%= link_to "<< Back to all jobs @ #{@job.company.name}", company_jobs_path(@job.company) %>
