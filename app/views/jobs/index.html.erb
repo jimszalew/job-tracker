@@ -6,3 +6,5 @@ All Jobs for <strong><%= @company.name %></strong>
     <%= link_to "Delete", company_job_path(@company, job), method: "delete" %>
   </ul>
 <% end %>
+
+<p><%= link_to "<< Back to all companies", companies_path %></p>
