@@ -5,8 +5,6 @@ describe "User creates a new category" do
     job = create(:job)
     visit new_company_job_path(job)
 
-    click_link "Create Category"
-
     fill_in "category[title]", with: "Web Development"
 
     click_button "Create Category"

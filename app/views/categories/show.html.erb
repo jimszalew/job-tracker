@@ -3,3 +3,5 @@ All Jobs for <strong><%= @category.title %></strong>
 <% @category.jobs.each do |job| %>
   <ul><%= job.title %> @ <%= link_to job.company.name, company_path(job.company) %></ul>
 <% end %>
+
+<p><%= link_to "<< Back to all Catgories", categories_path %></p>

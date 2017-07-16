@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   root 'companies#index'
   resources :companies do
-    resources :jobs do
-      resources :comments
-    end
+    resources :jobs
   end
 
   resources :jobs, only: [:show] do
