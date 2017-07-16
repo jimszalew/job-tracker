@@ -1,13 +1,10 @@
 class CommentsController < ApplicationController
-
-  def new
-    @job = Job.find(params[:job_id])
-    @comment = Comment.new()
-  end
-
   def create
-    @job = Job.find(params[:job_id])
-    @comment = @job.comments.create(comment_params)
+    @comment = Comment.new(comment_params)
+    @comment.job_id = params[:job_id]
+    @comment.save
+
+    redirect_to job_path(@comment.job)
   end
 
   private

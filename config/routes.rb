@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :jobs do
-    resources :comments
+  resources :jobs, only: [:show] do
+    resources :comments, shallow: true
   end
 
   resources :categories

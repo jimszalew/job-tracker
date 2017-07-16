@@ -1,3 +1,5 @@
 class Comment < ApplicationRecord
-  belongs_to :jobs
+  validates :content, presence: true
+
+  belongs_to :job
 end

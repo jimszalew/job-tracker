@@ -10,7 +10,7 @@ describe "User creates a new comment" do
 
     click_button "Add Comment"
 
-    expect(current_path).to eq("/companies/#{company.id}/jobs/#{job.id}")
+    expect(current_path).to eq("/jobs/#{job.id}")
     expect(page).to have_content("This job suckssssss. Abba Zabba, you my only friend.")
   end
 end
