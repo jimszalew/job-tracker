@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   def create
     @comment = Comment.new(comment_params)
     @comment.job_id = params[:job_id]
@@ -12,4 +13,5 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content)
   end
+
 end

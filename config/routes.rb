@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   root 'companies#index'
   resources :companies do
     resources :jobs
+    resources :contacts, shallow: true
   end
+
+  # resources :companies, only: [:show] do
+  #
+  # end
 
   resources :jobs, only: [:show] do
     resources :comments, shallow: true

@@ -1,4 +1,4 @@
-All Jobs for <strong><%= @company.name %></strong>
+<h2>All Jobs for <strong><%= @company.name %></strong></h2>
 
 <% @jobs.each do |job| %>
   <ul class=job_<%= job.id %>>
@@ -9,5 +9,10 @@ All Jobs for <strong><%= @company.name %></strong>
   </ul>
 <% end %>
 
-<p><%= link_to "Add a new job", new_company_job_path %>
+<p><%= link_to "Add a new job", new_company_job_path %></p>
+
+<h3>Contacts <%= @company.contacts.count %></h3>
+  <%= render partial: 'companies/contact', collection: @company.contacts %>
+  <%= render partial: 'contacts/form' %>
+
 <p><%= link_to "<< Back to all companies", companies_path %></p>
